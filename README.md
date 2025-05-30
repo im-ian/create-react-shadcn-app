@@ -1,173 +1,173 @@
-# 🚀 React + shadcn/ui Boilerplates
+# 🚀 React + shadcn/ui 보일러플레이트 모음
 
-A collection of modern, production-ready boilerplates for building React applications with different frameworks and routing solutions.
+다양한 프레임워크와 라우팅 솔루션으로 React 애플리케이션을 구축하기 위한 현대적이고 프로덕션 준비가 완료된 보일러플레이트 모음입니다.
 
-## 📦 Available Templates
+## 📦 사용 가능한 템플릿
 
 ### 1. 🔥 React + Vite
-**Location**: `packages/react-vite/`
+**위치**: `packages/react-vite/`
 
-A modern React boilerplate with Vite for fast development and TanStack Router for type-safe routing.
+빠른 개발을 위한 Vite와 타입 안전한 라우팅을 위한 TanStack Router가 포함된 현대적인 React 보일러플레이트입니다.
 
-**Tech Stack**:
+**기술 스택**:
 - React 18 + TypeScript
-- Vite (Build tool)
-- TanStack Router (Type-safe routing)
+- Vite (빌드 도구)
+- TanStack Router (타입 안전한 라우팅)
 - Tailwind CSS v4
-- shadcn/ui components
-- Jotai (State management)
-- TanStack Query (Server state)
+- shadcn/ui 컴포넌트
+- Jotai (상태 관리)
+- TanStack Query (서버 상태)
 
 ### 2. ⚡ Next.js App Router
-**Location**: `packages/nextjs-app-router/`
+**위치**: `packages/nextjs-app-router/`
 
-A Next.js boilerplate using the modern App Router with server components and streaming.
+서버 컴포넌트와 스트리밍을 지원하는 현대적인 App Router를 사용한 Next.js 보일러플레이트입니다.
 
-**Tech Stack**:
+**기술 스택**:
 - Next.js 15 + App Router
 - TypeScript
 - Tailwind CSS v4
-- shadcn/ui components
-- Jotai (State management)
-- TanStack Query (Server state)
+- shadcn/ui 컴포넌트
+- Jotai (상태 관리)
+- TanStack Query (서버 상태)
 
-### 3. 📄 Next.js Pages Router *(Coming Soon)*
-**Location**: `packages/nextjs-pages-router/`
+### 3. 📄 Next.js Pages Router *(준비 중)*
+**위치**: `packages/nextjs-pages-router/`
 
-A Next.js boilerplate using the traditional Pages Router for projects that need it.
+필요한 프로젝트를 위한 전통적인 Pages Router를 사용한 Next.js 보일러플레이트입니다.
 
-## 🚀 Quick Start
+## 🚀 빠른 시작
 
-### Using the Creation Script
+### 생성 스크립트 사용
 
 ```bash
-# Clone this repository
+# 이 저장소 클론
 git clone <repository-url>
 cd react-shadcn-boilerplates
 
-# Create a new project using any template
-node scripts/create-project.js my-app react-vite
-node scripts/create-project.js my-app nextjs-app-router
-# node scripts/create-project.js my-app nextjs-pages-router  # Coming soon
+# 원하는 템플릿으로 새 프로젝트 생성
+node scripts/create-project.js react-vite my-app
+node scripts/create-project.js nextjs-app-router my-app
+# node scripts/create-project.js nextjs-pages-router my-app  # 준비 중
 ```
 
-### Manual Setup
+### 수동 설정
 
 ```bash
-# Copy any template manually
+# 템플릿을 수동으로 복사
 cp -r packages/react-vite my-new-project
 cd my-new-project
 npm install
 npm run dev
 ```
 
-## 🛠️ Common Features
+## 🛠️ 공통 기능
 
-All boilerplates include:
+모든 보일러플레이트에 포함된 기능:
 
-- ✅ **TypeScript** for type safety
-- ✅ **Tailwind CSS v4** for modern styling
-- ✅ **shadcn/ui** for beautiful components
-- ✅ **Jotai** for atomic state management
-- ✅ **TanStack Query** for server state
-- ✅ **ESLint** for code quality
-- ✅ **Domain-driven folder structure**
-- ✅ **Modern development tools**
+- ✅ **TypeScript** 타입 안전성
+- ✅ **Tailwind CSS v4** 현대적인 스타일링
+- ✅ **shadcn/ui** 아름다운 컴포넌트
+- ✅ **Jotai** 원자적 상태 관리
+- ✅ **TanStack Query** 서버 상태 관리
+- ✅ **ESLint** 코드 품질 관리
+- ✅ **도메인 기반 폴더 구조**
+- ✅ **현대적인 개발 도구**
 
-## 📁 Project Structure
+## 📁 프로젝트 구조
 
-Each template follows a consistent, domain-driven structure:
+각 템플릿은 일관된 도메인 기반 구조를 따릅니다:
 
 ```
 src/
-├── components/             # Shared/common components
-│   └── ui/                # shadcn/ui components
-├── domains/               # Domain-based organization
+├── components/             # 공유/공통 컴포넌트
+│   └── ui/                # shadcn/ui 컴포넌트
+├── domains/               # 도메인 기반 구성
 │   ├── user/
 │   │   ├── components/
 │   │   ├── hooks/
 │   │   └── index.ts
 │   ├── product/
 │   └── order/
-├── hooks/                 # Shared hooks
-├── lib/                   # Utilities and configurations
-└── ...                    # Framework-specific files
+├── hooks/                 # 공유 훅
+├── lib/                   # 유틸리티 및 설정
+└── ...                    # 프레임워크별 파일
 ```
 
-## 🎯 When to Use Each Template
+## 🎯 각 템플릿 사용 시기
 
 ### React + Vite
-- **Best for**: SPAs, client-side applications, rapid prototyping
-- **Pros**: Fast development, simple deployment, full client-side control
-- **Use cases**: Dashboards, admin panels, interactive web apps
+- **적합한 용도**: SPA, 클라이언트 사이드 애플리케이션, 빠른 프로토타이핑
+- **장점**: 빠른 개발, 간단한 배포, 완전한 클라이언트 사이드 제어
+- **사용 사례**: 대시보드, 관리자 패널, 인터랙티브 웹 앱
 
 ### Next.js App Router
-- **Best for**: Full-stack applications, SEO-critical sites, modern React patterns
-- **Pros**: Server components, streaming, built-in optimizations, SEO-friendly
-- **Use cases**: Marketing sites, e-commerce, blogs, complex web applications
+- **적합한 용도**: 풀스택 애플리케이션, SEO가 중요한 사이트, 현대적인 React 패턴
+- **장점**: 서버 컴포넌트, 스트리밍, 내장 최적화, SEO 친화적
+- **사용 사례**: 마케팅 사이트, 이커머스, 블로그, 복잡한 웹 애플리케이션
 
 ### Next.js Pages Router
-- **Best for**: Existing Next.js projects, gradual migration, specific requirements
-- **Pros**: Mature ecosystem, well-documented, stable API
-- **Use cases**: Legacy projects, specific routing needs, incremental adoption
+- **적합한 용도**: 기존 Next.js 프로젝트, 점진적 마이그레이션, 특정 요구사항
+- **장점**: 성숙한 생태계, 잘 문서화됨, 안정적인 API
+- **사용 사례**: 레거시 프로젝트, 특정 라우팅 요구사항, 점진적 도입
 
-## 🔧 Customization
+## 🔧 커스터마이징
 
-### Adding Components
+### 컴포넌트 추가
 
-All templates use shadcn/ui. Add new components with:
-
-```bash
-npx shadcn@latest add [component-name]
-```
-
-### State Management
-
-- **Client State**: Use Jotai atoms
-- **Server State**: Use TanStack Query
-- **Form State**: Use react-hook-form (add as needed)
-
-### Styling
-
-- Customize Tailwind CSS in `globals.css`
-- Modify shadcn/ui theme variables
-- Add custom components in `components/ui/`
-
-## 📝 Scripts
-
-Each template includes these common scripts:
+모든 템플릿은 shadcn/ui를 사용합니다. 새 컴포넌트 추가:
 
 ```bash
-npm run dev      # Start development server
-npm run build    # Build for production
-npm run lint     # Run ESLint
-npm run preview  # Preview production build (Vite only)
-npm run start    # Start production server (Next.js only)
+npx shadcn@latest add [컴포넌트명]
 ```
 
-## 🚀 Deployment
+### 상태 관리
+
+- **클라이언트 상태**: Jotai atoms 사용
+- **서버 상태**: TanStack Query 사용
+- **폼 상태**: react-hook-form (필요시 추가)
+
+### 스타일링
+
+- `globals.css`에서 Tailwind CSS 커스터마이징
+- shadcn/ui 테마 변수 수정
+- `components/ui/`에 커스텀 컴포넌트 추가
+
+## 📝 스크립트
+
+각 템플릿에 포함된 공통 스크립트:
+
+```bash
+npm run dev      # 개발 서버 시작
+npm run build    # 프로덕션 빌드
+npm run lint     # ESLint 실행
+npm run preview  # 프로덕션 빌드 미리보기 (Vite만)
+npm run start    # 프로덕션 서버 시작 (Next.js만)
+```
+
+## 🚀 배포
 
 ### React + Vite
-- **Recommended**: Vercel, Netlify, GitHub Pages
-- **Build**: `npm run build` → `dist/` folder
+- **권장**: Vercel, Netlify, GitHub Pages
+- **빌드**: `npm run build` → `dist/` 폴더
 
 ### Next.js (App Router & Pages Router)
-- **Recommended**: Vercel (zero-config)
-- **Alternatives**: Netlify, AWS, Docker
-- **Build**: `npm run build` → `.next/` folder
+- **권장**: Vercel (제로 설정)
+- **대안**: Netlify, AWS, Docker
+- **빌드**: `npm run build` → `.next/` 폴더
 
-## 🤝 Contributing
+## 🤝 기여하기
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+1. 저장소 포크
+2. 기능 브랜치 생성 (`git checkout -b feature/amazing-feature`)
+3. 변경사항 커밋 (`git commit -m 'Add some amazing feature'`)
+4. 브랜치에 푸시 (`git push origin feature/amazing-feature`)
+5. Pull Request 열기
 
-## 📄 License
+## 📄 라이선스
 
-This project is licensed under the MIT License.
+이 프로젝트는 MIT 라이선스 하에 있습니다.
 
 ---
 
-**Choose your adventure and start building! 🎉**
+**모험을 선택하고 빌드를 시작하세요! 🎉**
