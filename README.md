@@ -75,7 +75,7 @@ npm run dev
 
 - ✅ **TypeScript** 타입 안전성
 - ✅ **Tailwind CSS v4** 현대적인 스타일링
-- ✅ **shadcn/ui** 아름다운 컴포넌트
+- ✅ **shadcn/ui** Tailwind 기반의 UI 컴포넌트
 - ✅ **Jotai** 원자적 상태 관리
 - ✅ **TanStack Query** 서버 상태 관리
 - ✅ **ESLint** 코드 품질 관리
