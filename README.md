@@ -18,13 +18,13 @@ React + shadcn/ui 애플리케이션을 빠르게 생성하는 CLI 도구
 
 ```bash
 # React + Vite 프로젝트 생성
-npx create-react-shadcn-app react-vite my-app
+npx create-react-shadcn-app react-vite <project-name>
 
 # Next.js App Router 프로젝트 생성
-npx create-react-shadcn-app nextjs-app-router my-dashboard
+npx create-react-shadcn-app nextjs-app-router <project-name>
 
 # Next.js Pages Router 프로젝트 생성
-npx create-react-shadcn-app nextjs-pages-router my-blog
+npx create-react-shadcn-app nextjs-pages-router <project-name>
 ```
 
 ### 전역 설치 후 사용
@@ -34,23 +34,9 @@ npx create-react-shadcn-app nextjs-pages-router my-blog
 npm install -g create-react-shadcn-app
 
 # 프로젝트 생성
-create-react-shadcn-app react-vite my-app
-create-react-shadcn-app nextjs-app-router my-dashboard
-create-react-shadcn-app nextjs-pages-router my-blog
-```
-
-### degit 사용 (대안)
-
-```bash
-# 템플릿을 직접 복사
-npx degit im-ian/create-react-shadcn-app/packages/react-vite my-app
-npx degit im-ian/create-react-shadcn-app/packages/nextjs-app-router my-dashboard
-npx degit im-ian/create-react-shadcn-app/packages/nextjs-pages-router my-blog
-
-# 의존성 설치 및 개발 서버 시작
-cd my-app
-npm install
-npm run dev
+create-react-shadcn-app react-vite <project-name>
+create-react-shadcn-app nextjs-app-router <project-name>
+create-react-shadcn-app nextjs-pages-router <project-name>
 ```
 
 ## 🛠️ 공통 기능
@@ -155,11 +141,3 @@ npm run start    # 프로덕션 서버 시작 (Next.js만)
 3. 변경사항 커밋 (`git commit -m 'Add some amazing feature'`)
 4. 브랜치에 푸시 (`git push origin feature/amazing-feature`)
 5. Pull Request 열기
-
-## 📄 라이선스
-
-이 프로젝트는 MIT 라이선스 하에 있습니다.
-
----
-
-**빠르게 시작하고 멋진 앱을 만들어보세요! 🎉**
