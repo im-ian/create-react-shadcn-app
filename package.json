@@ -1,0 +1,13 @@
+{
+  "name": "react-shadcn-boilerplates",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "create:react": "node scripts/create-project.js react-vite",
+    "create:next-app": "node scripts/create-project.js nextjs-app-router",
+    "create:next-pages": "node scripts/create-project.js nextjs-pages-router"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+} 
