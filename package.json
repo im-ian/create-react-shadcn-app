@@ -1,6 +1,6 @@
 {
   "name": "create-react-shadcn-app",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "CLI tool to create React applications with shadcn/ui components",
   "main": "scripts/create-project.js",
   "bin": {

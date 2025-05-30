@@ -25,10 +25,15 @@ const TEMPLATES = {
 
 function showUsage() {
   console.log(
-    "\nUsage: node scripts/create-project.js <template> <project-name> [target-dir]"
+    "\nUsage: npx create-react-shadcn-app <project-name> [template] [target-dir]"
   );
   console.log("\nTemplates:");
   Object.keys(TEMPLATES).forEach((key) => console.log(`  - ${key}`));
+  console.log("\nDefault template: react-vite");
+  console.log("\nExamples:");
+  console.log("  npx create-react-shadcn-app my-app");
+  console.log("  npx create-react-shadcn-app my-app react-vite");
+  console.log("  npx create-react-shadcn-app my-dashboard nextjs-app-router");
 }
 
 function validateProjectName(name) {
@@ -180,9 +185,10 @@ function showSuccessMessage(projectName, projectPath, packageManager) {
 }
 
 function main() {
-  const [, , template, projectName, targetDir = "."] = process.argv;
+  const [, , projectName, template = "react-vite", targetDir = "."] =
+    process.argv;
 
-  if (!template || !projectName) {
+  if (!projectName) {
     showUsage();
     process.exit(1);
   }
@@ -214,7 +220,9 @@ function main() {
       process.exit(1);
     }
 
-    console.log(`\nCreating ${projectName}...`);
+    console.log(
+      `\nCreating ${projectName} with ${TEMPLATES[template].name}...`
+    );
 
     copyDirectory(templatePath, projectPath);
     updatePackageJson(projectPath, projectName);
