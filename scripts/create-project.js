@@ -28,9 +28,11 @@ function showUsage() {
   console.log("\nTemplates:");
   Object.keys(TEMPLATES).forEach((key) => console.log(`  - ${key}`));
   console.log("\nExamples:");
-  console.log("  npx create-react-shadcn-app react-vite my-app");
-  console.log("  npx create-react-shadcn-app nextjs-app-router my-dashboard");
-  console.log("  npx create-react-shadcn-app nextjs-pages-router my-blog");
+  console.log("  npx create-react-shadcn-app react-vite <project-name>");
+  console.log("  npx create-react-shadcn-app nextjs-app-router <project-name>");
+  console.log(
+    "  npx create-react-shadcn-app nextjs-pages-router <project-name>"
+  );
 }
 
 function validateProjectName(name) {
