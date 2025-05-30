@@ -1,8 +1,8 @@
-# React shadcn/ui Boilerplates
+# 🚀 React shadcn/ui Boilerplates
 
 개인 사용을 위한 React + shadcn/ui 보일러플레이트 모음
 
-## 구조
+## 📁 구조
 
 ```
 react-shadcn-boilerplates/
@@ -15,7 +15,7 @@ react-shadcn-boilerplates/
 └── package.json
 ```
 
-## 사용법
+## 💻 사용법
 
 ### 1. npm 스크립트 사용
 
@@ -42,13 +42,13 @@ node scripts/create-project.js react-vite my-app
 node scripts/create-project.js nextjs-app-router my-dashboard ./projects
 ```
 
-## 템플릿
+## 📦 템플릿
 
 - `react-vite` - React + Vite + shadcn/ui
 - `nextjs-app-router` - Next.js App Router + shadcn/ui
 - `nextjs-pages-router` - Next.js Pages Router + shadcn/ui
 
-## 자동 설정
+## ⚙️ 자동 설정
 
 프로젝트 생성 시 자동으로:
 
@@ -60,7 +60,7 @@ node scripts/create-project.js nextjs-app-router my-dashboard ./projects
 
 **참고:** degit 사용 시에는 자동 설정이 되지 않으므로 수동으로 설정해야 합니다.
 
-## 요구사항
+## 📋 요구사항
 
 - Node.js 18+
 - yarn 또는 npm
