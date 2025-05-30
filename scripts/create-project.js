@@ -34,6 +34,7 @@ function showUsage() {
   console.log("  npx create-react-shadcn-app my-app");
   console.log("  npx create-react-shadcn-app my-app react-vite");
   console.log("  npx create-react-shadcn-app my-dashboard nextjs-app-router");
+  console.log("  npx create-react-shadcn-app my-blog nextjs-pages-router");
 }
 
 function validateProjectName(name) {
@@ -153,21 +154,49 @@ function installDependencies(projectPath) {
   try {
     let packageManager = "npm";
 
-    try {
-      execSync("yarn --version", { stdio: "pipe" });
+    // lockfile 확인하여 패키지 매니저 결정
+    const hasPackageLock = fs.existsSync(
+      path.join(projectPath, "package-lock.json")
+    );
+    const hasYarnLock = fs.existsSync(path.join(projectPath, "yarn.lock"));
+    const hasPnpmLock = fs.existsSync(path.join(projectPath, "pnpm-lock.yaml"));
+
+    if (hasYarnLock) {
       packageManager = "yarn";
-    } catch {
+    } else if (hasPnpmLock) {
+      packageManager = "pnpm";
+    } else if (hasPackageLock) {
       packageManager = "npm";
+    } else {
+      // lockfile이 없으면 사용 가능한 패키지 매니저 확인
+      try {
+        execSync("yarn --version", { stdio: "pipe" });
+        packageManager = "yarn";
+      } catch {
+        try {
+          execSync("pnpm --version", { stdio: "pipe" });
+          packageManager = "pnpm";
+        } catch {
+          packageManager = "npm";
+        }
+      }
     }
 
-    const installCommand =
-      packageManager === "yarn" ? "yarn install" : "npm install";
+    console.log(`Using ${packageManager}...`);
+
+    const installCommand = {
+      npm: "npm install",
+      yarn: "yarn install",
+      pnpm: "pnpm install",
+    }[packageManager];
 
     execSync(installCommand, { cwd: projectPath, stdio: "inherit" });
 
     return packageManager;
   } catch (error) {
     console.log(`Install failed: ${error.message}`);
+    console.log("You can install dependencies manually by running:");
+    console.log("  npm install");
     return null;
   }
 }
