@@ -31,10 +31,18 @@
 - Jotai (상태 관리)
 - TanStack Query (서버 상태)
 
-### 3. 📄 Next.js Pages Router *(준비 중)*
+### 3. 📄 Next.js Pages Router
 **위치**: `packages/nextjs-pages-router/`
 
-필요한 프로젝트를 위한 전통적인 Pages Router를 사용한 Next.js 보일러플레이트입니다.
+전통적인 Pages Router를 사용한 Next.js 보일러플레이트입니다. 기존 프로젝트나 특정 요구사항이 있는 경우에 적합합니다.
+
+**기술 스택**:
+- Next.js 15 + Pages Router
+- TypeScript
+- Tailwind CSS v4
+- shadcn/ui 컴포넌트
+- Jotai (상태 관리)
+- TanStack Query (서버 상태)
 
 ## 🚀 빠른 시작
 
@@ -48,7 +56,7 @@ cd react-shadcn-boilerplates
 # 원하는 템플릿으로 새 프로젝트 생성
 node scripts/create-project.js react-vite my-app
 node scripts/create-project.js nextjs-app-router my-app
-# node scripts/create-project.js nextjs-pages-router my-app  # 준비 중
+node scripts/create-project.js nextjs-pages-router my-app
 ```
 
 ### 수동 설정

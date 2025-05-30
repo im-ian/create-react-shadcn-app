@@ -18,7 +18,7 @@ const TEMPLATES = {
   },
   "nextjs-pages-router": {
     name: "Next.js Pages Router",
-    description: "Next.js with Pages Router and shadcn/ui (Coming Soon)",
+    description: "Next.js 15 with Pages Router and shadcn/ui",
     path: "packages/nextjs-pages-router",
   },
 };
