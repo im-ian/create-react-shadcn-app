@@ -10,7 +10,7 @@ React + shadcn/ui 애플리케이션을 빠르게 생성하는 CLI 도구
 빠른 개발을 위한 Vite와 타입 안전한 라우팅을 위한 TanStack Router가 포함된 현대적인 React 보일러플레이트입니다.
 
 **기술 스택**:
-- React 18 + TypeScript
+- React 19 + TypeScript
 - Vite (빌드 도구)
 - TanStack Router (타입 안전한 라우팅)
 - Tailwind CSS v4
