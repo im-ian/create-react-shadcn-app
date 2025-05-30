@@ -24,18 +24,13 @@ const TEMPLATES = {
 };
 
 function showUsage() {
-  console.log("\nUsage: npx create-react-shadcn-app <project-name> [template]");
+  console.log("\nUsage: npx create-react-shadcn-app <template> <project-name>");
   console.log("\nTemplates:");
   Object.keys(TEMPLATES).forEach((key) => console.log(`  - ${key}`));
-  console.log("\nDefault template: react-vite");
   console.log("\nExamples:");
-  console.log("  npx create-react-shadcn-app my-app");
-  console.log("  npx create-react-shadcn-app my-app react-vite");
-  console.log("  npx create-react-shadcn-app my-dashboard nextjs-app-router");
-  console.log("  npx create-react-shadcn-app my-blog nextjs-pages-router");
-  console.log(
-    "\nNote: If you want to use a specific template, make sure to specify it as the second argument."
-  );
+  console.log("  npx create-react-shadcn-app react-vite my-app");
+  console.log("  npx create-react-shadcn-app nextjs-app-router my-dashboard");
+  console.log("  npx create-react-shadcn-app nextjs-pages-router my-blog");
 }
 
 function validateProjectName(name) {
@@ -218,21 +213,15 @@ function showSuccessMessage(projectName, projectPath, packageManager) {
 function main() {
   const args = process.argv.slice(2);
 
-  if (args.length === 0) {
+  if (args.length < 2) {
+    console.log("Error: Both template and project name are required");
     showUsage();
     process.exit(1);
   }
 
-  const projectName = args[0];
-  let template = args[1] || "react-vite";
+  const template = args[0];
+  const projectName = args[1];
   const targetDir = args[2] || ".";
-
-  // 프로젝트명 검증
-  if (!projectName) {
-    console.log("Error: Project name is required");
-    showUsage();
-    process.exit(1);
-  }
 
   // 템플릿 검증
   if (!TEMPLATES[template]) {
@@ -241,10 +230,13 @@ function main() {
     Object.keys(TEMPLATES).forEach((key) =>
       console.log(`  - ${key}: ${TEMPLATES[key].description}`)
     );
-    console.log(
-      `\nDid you mean one of these? If you want to create a project named "${template}",`
-    );
-    console.log(`use: npx create-react-shadcn-app ${template}`);
+    process.exit(1);
+  }
+
+  // 프로젝트명 검증
+  if (!projectName) {
+    console.log("Error: Project name is required");
+    showUsage();
     process.exit(1);
   }
 
