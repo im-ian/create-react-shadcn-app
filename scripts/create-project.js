@@ -24,9 +24,7 @@ const TEMPLATES = {
 };
 
 function showUsage() {
-  console.log(
-    "\nUsage: npx create-react-shadcn-app <project-name> [template] [target-dir]"
-  );
+  console.log("\nUsage: npx create-react-shadcn-app <project-name> [template]");
   console.log("\nTemplates:");
   Object.keys(TEMPLATES).forEach((key) => console.log(`  - ${key}`));
   console.log("\nDefault template: react-vite");
@@ -35,6 +33,9 @@ function showUsage() {
   console.log("  npx create-react-shadcn-app my-app react-vite");
   console.log("  npx create-react-shadcn-app my-dashboard nextjs-app-router");
   console.log("  npx create-react-shadcn-app my-blog nextjs-pages-router");
+  console.log(
+    "\nNote: If you want to use a specific template, make sure to specify it as the second argument."
+  );
 }
 
 function validateProjectName(name) {
@@ -152,14 +153,21 @@ function installDependencies(projectPath) {
   console.log("Installing dependencies...");
 
   try {
-    let packageManager = "npm";
+    const packageLockPath = path.join(projectPath, "package-lock.json");
+    const yarnLockPath = path.join(projectPath, "yarn.lock");
+    const pnpmLockPath = path.join(projectPath, "pnpm-lock.yaml");
 
-    // lockfile 확인하여 패키지 매니저 결정
-    const hasPackageLock = fs.existsSync(
-      path.join(projectPath, "package-lock.json")
-    );
-    const hasYarnLock = fs.existsSync(path.join(projectPath, "yarn.lock"));
-    const hasPnpmLock = fs.existsSync(path.join(projectPath, "pnpm-lock.yaml"));
+    const hasPackageLock = fs.existsSync(packageLockPath);
+    const hasYarnLock = fs.existsSync(yarnLockPath);
+    const hasPnpmLock = fs.existsSync(pnpmLockPath);
+
+    console.log(`Lockfile detection:`, {
+      hasPackageLock,
+      hasYarnLock,
+      hasPnpmLock,
+    });
+
+    let packageManager = "npm";
 
     if (hasYarnLock) {
       packageManager = "yarn";
@@ -167,19 +175,12 @@ function installDependencies(projectPath) {
       packageManager = "pnpm";
     } else if (hasPackageLock) {
       packageManager = "npm";
+      // package-lock.json이 있으면 다른 lockfile 제거
+      if (hasYarnLock) fs.unlinkSync(yarnLockPath);
+      if (hasPnpmLock) fs.unlinkSync(pnpmLockPath);
     } else {
-      // lockfile이 없으면 사용 가능한 패키지 매니저 확인
-      try {
-        execSync("yarn --version", { stdio: "pipe" });
-        packageManager = "yarn";
-      } catch {
-        try {
-          execSync("pnpm --version", { stdio: "pipe" });
-          packageManager = "pnpm";
-        } catch {
-          packageManager = "npm";
-        }
-      }
+      // lockfile이 없으면 npm을 기본으로 사용 (가장 안정적)
+      packageManager = "npm";
     }
 
     console.log(`Using ${packageManager}...`);
@@ -196,6 +197,7 @@ function installDependencies(projectPath) {
   } catch (error) {
     console.log(`Install failed: ${error.message}`);
     console.log("You can install dependencies manually by running:");
+    console.log("  cd " + path.basename(projectPath));
     console.log("  npm install");
     return null;
   }
@@ -214,18 +216,35 @@ function showSuccessMessage(projectName, projectPath, packageManager) {
 }
 
 function main() {
-  const [, , projectName, template = "react-vite", targetDir = "."] =
-    process.argv;
+  const args = process.argv.slice(2);
 
-  if (!projectName) {
+  if (args.length === 0) {
     showUsage();
     process.exit(1);
   }
 
+  const projectName = args[0];
+  let template = args[1] || "react-vite";
+  const targetDir = args[2] || ".";
+
+  // 프로젝트명 검증
+  if (!projectName) {
+    console.log("Error: Project name is required");
+    showUsage();
+    process.exit(1);
+  }
+
+  // 템플릿 검증
   if (!TEMPLATES[template]) {
-    console.log(`Unknown template: ${template}`);
-    console.log("Available:");
-    Object.keys(TEMPLATES).forEach((key) => console.log(`  - ${key}`));
+    console.log(`Error: Unknown template "${template}"`);
+    console.log("\nAvailable templates:");
+    Object.keys(TEMPLATES).forEach((key) =>
+      console.log(`  - ${key}: ${TEMPLATES[key].description}`)
+    );
+    console.log(
+      `\nDid you mean one of these? If you want to create a project named "${template}",`
+    );
+    console.log(`use: npx create-react-shadcn-app ${template}`);
     process.exit(1);
   }
 
@@ -245,7 +264,7 @@ function main() {
     }
 
     if (fs.existsSync(projectPath)) {
-      console.log(`Directory exists: ${projectPath}`);
+      console.log(`Error: Directory "${projectName}" already exists`);
       process.exit(1);
     }
 
