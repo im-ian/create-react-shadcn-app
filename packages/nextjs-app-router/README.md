@@ -63,20 +63,20 @@ src/
 
 ### Installation
 
-1. Clone this template or use the creation script:
+1. Create a new project using the CLI tool:
 
 ```bash
-# Using the creation script from the root
-node scripts/create-project.js my-nextjs-app nextjs-app-router
+# Using npx (recommended)
+npx create-react-shadcn-app my-app nextjs-app-router
 
-# Or clone directly
-git clone <repository-url>
-cd nextjs-app-router
+# Or using degit
+npx degit im-ian/create-react-shadcn-app/packages/nextjs-app-router my-app
 ```
 
 2. Install dependencies:
 
 ```bash
+cd my-app
 npm install
 # or
 yarn install
