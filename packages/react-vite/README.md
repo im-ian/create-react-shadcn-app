@@ -4,7 +4,7 @@ A modern, production-ready boilerplate for building React applications with Vite
 
 ## ✨ Features
 
-- **React 18** with modern hooks and patterns
+- **React 19** with modern hooks and patterns
 - **Vite** for lightning-fast development and building
 - **TanStack Router** for type-safe routing
 - **TypeScript** for type safety and better developer experience
@@ -17,7 +17,7 @@ A modern, production-ready boilerplate for building React applications with Vite
 
 ## 🛠️ Tech Stack
 
-- **Framework**: React 18
+- **Framework**: React 19
 - **Build Tool**: Vite
 - **Language**: TypeScript
 - **Routing**: TanStack Router

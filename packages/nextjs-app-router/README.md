@@ -5,6 +5,7 @@ A modern, production-ready boilerplate for building React applications with Next
 ## ✨ Features
 
 - **Next.js 15** with App Router for modern React development
+- **React 19** with modern hooks and patterns
 - **TypeScript** for type safety and better developer experience
 - **Tailwind CSS v4** for utility-first styling
 - **shadcn/ui** for beautiful, accessible UI components
@@ -15,7 +16,7 @@ A modern, production-ready boilerplate for building React applications with Next
 
 ## 🛠️ Tech Stack
 
-- **Framework**: Next.js 15 (App Router)
+- **Framework**: Next.js 15 (App Router) + React 19
 - **Language**: TypeScript
 - **Styling**: Tailwind CSS v4
 - **UI Components**: shadcn/ui
