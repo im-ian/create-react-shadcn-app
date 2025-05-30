@@ -4,45 +4,13 @@ React + shadcn/ui 애플리케이션을 빠르게 생성하는 CLI 도구
 
 ## 📦 사용 가능한 템플릿
 
-### 1. 🔥 React + Vite
-**템플릿명**: `react-vite`
+| 템플릿 | 설명 | 주요 기술 | 사용 시기 |
+|--------|------|-----------|-----------|
+| 🔥 **react-vite** | 빠른 개발을 위한 Vite + TanStack Router | React 19, Vite, TanStack Router, Tailwind CSS v4 | SPA, 빠른 개발, 타입 안전한 라우팅 |
+| ⚡ **nextjs-app-router** | 현대적인 App Router + 서버 컴포넌트 | Next.js 15, App Router, 서버 컴포넌트 | SSR, 최신 Next.js 기능, SEO 중요 |
+| 📄 **nextjs-pages-router** | 전통적인 Pages Router | Next.js 15, Pages Router | 기존 프로젝트 호환, 안정성 우선 |
 
-빠른 개발을 위한 Vite와 타입 안전한 라우팅을 위한 TanStack Router가 포함된 현대적인 React 보일러플레이트입니다.
-
-**기술 스택**:
-- React 19 + TypeScript
-- Vite (빌드 도구)
-- TanStack Router (타입 안전한 라우팅)
-- Tailwind CSS v4
-- shadcn/ui 컴포넌트
-- Jotai (상태 관리)
-- TanStack Query (서버 상태)
-
-### 2. ⚡ Next.js App Router
-**템플릿명**: `nextjs-app-router`
-
-서버 컴포넌트와 스트리밍을 지원하는 현대적인 App Router를 사용한 Next.js 보일러플레이트입니다.
-
-**기술 스택**:
-- Next.js 15 + App Router
-- TypeScript
-- Tailwind CSS v4
-- shadcn/ui 컴포넌트
-- Jotai (상태 관리)
-- TanStack Query (서버 상태)
-
-### 3. 📄 Next.js Pages Router
-**템플릿명**: `nextjs-pages-router`
-
-전통적인 Pages Router를 사용한 Next.js 보일러플레이트입니다. 기존 프로젝트나 특정 요구사항이 있는 경우에 적합합니다.
-
-**기술 스택**:
-- Next.js 15 + Pages Router
-- TypeScript
-- Tailwind CSS v4
-- shadcn/ui 컴포넌트
-- Jotai (상태 관리)
-- TanStack Query (서버 상태)
+**공통 기술 스택**: TypeScript, Tailwind CSS v4, shadcn/ui, Jotai, TanStack Query
 
 ## 🚀 빠른 시작
 
