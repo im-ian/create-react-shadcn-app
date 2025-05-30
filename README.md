@@ -6,9 +6,9 @@ React + shadcn/ui 애플리케이션을 빠르게 생성하는 CLI 도구
 
 | 템플릿 | 설명 | 주요 기술 | 사용 시기 |
 |--------|------|-----------|-----------|
-| 🔥 **react-vite** | 빠른 개발을 위한 Vite + TanStack Router | React 19, Vite, TanStack Router, Tailwind CSS v4 | SPA, 빠른 개발, 타입 안전한 라우팅 |
-| ⚡ **nextjs-app-router** | 현대적인 App Router + 서버 컴포넌트 | Next.js 15, App Router, 서버 컴포넌트 | SSR, 최신 Next.js 기능, SEO 중요 |
-| 📄 **nextjs-pages-router** | 전통적인 Pages Router | Next.js 15, Pages Router | 기존 프로젝트 호환, 안정성 우선 |
+| `react-vite` | 빠른 개발을 위한 Vite + TanStack Router | React 19, Vite, TanStack Router, Tailwind CSS v4 | SPA, 빠른 개발, 타입 안전한 라우팅 |
+| `nextjs-app-router` | 현대적인 App Router + 서버 컴포넌트 | Next.js 15, App Router, 서버 컴포넌트 | SSR, 최신 Next.js 기능, SEO 중요 |
+| `nextjs-pages-router` | 전통적인 Pages Router | Next.js 15, Pages Router | 기존 프로젝트 호환, 안정성 우선 |
 
 **공통 기술 스택**: TypeScript, Tailwind CSS v4, shadcn/ui, Jotai, TanStack Query
 
