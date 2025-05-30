@@ -58,38 +58,22 @@ function copyDirectory(src, dest) {
     "*.log",
   ];
 
-  const shouldExclude = (filePath) => {
-    return excludePatterns.some((pattern) => {
-      if (pattern.includes("*")) {
-        return filePath.includes(pattern.replace("*", ""));
-      }
-      return filePath.includes(pattern);
+  try {
+    // fs-extra의 copySync 사용하되, 제외할 파일들은 필터링
+    fs.copySync(src, dest, {
+      filter: (srcPath) => {
+        const relativePath = path.relative(src, srcPath);
+        return !excludePatterns.some((pattern) => {
+          if (pattern.includes("*")) {
+            return relativePath.includes(pattern.replace("*", ""));
+          }
+          return relativePath.includes(pattern);
+        });
+      },
     });
-  };
-
-  function copyRecursive(srcPath, destPath) {
-    const stats = fs.statSync(srcPath);
-
-    if (stats.isDirectory()) {
-      if (!fs.existsSync(destPath)) {
-        fs.mkdirSync(destPath, { recursive: true });
-      }
-
-      const files = fs.readdirSync(srcPath);
-      files.forEach((file) => {
-        const srcFile = path.join(srcPath, file);
-        const destFile = path.join(destPath, file);
-
-        if (!shouldExclude(srcFile)) {
-          copyRecursive(srcFile, destFile);
-        }
-      });
-    } else {
-      fs.copyFileSync(srcPath, destPath);
-    }
+  } catch (error) {
+    throw new Error(`Failed to copy files: ${error.message}`);
   }
-
-  copyRecursive(src, dest);
 }
 
 function updatePackageJson(projectPath, projectName) {
