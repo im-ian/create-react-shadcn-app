@@ -49,13 +49,14 @@ React + shadcn/ui 애플리케이션을 빠르게 생성하는 CLI 도구
 ### npx 사용 (권장)
 
 ```bash
-# React + Vite 프로젝트 생성 (기본 템플릿)
-npx create-react-shadcn-app my-app
+# React + Vite 프로젝트 생성
+npx create-react-shadcn-app react-vite my-app
 
-# 특정 템플릿으로 프로젝트 생성
-npx create-react-shadcn-app my-app react-vite
-npx create-react-shadcn-app my-dashboard nextjs-app-router
-npx create-react-shadcn-app my-blog nextjs-pages-router
+# Next.js App Router 프로젝트 생성
+npx create-react-shadcn-app nextjs-app-router my-dashboard
+
+# Next.js Pages Router 프로젝트 생성
+npx create-react-shadcn-app nextjs-pages-router my-blog
 ```
 
 ### 전역 설치 후 사용
@@ -65,10 +66,9 @@ npx create-react-shadcn-app my-blog nextjs-pages-router
 npm install -g create-react-shadcn-app
 
 # 프로젝트 생성
-create-react-shadcn-app my-app
-create-react-shadcn-app my-app react-vite
-create-react-shadcn-app my-dashboard nextjs-app-router
-create-react-shadcn-app my-blog nextjs-pages-router
+create-react-shadcn-app react-vite my-app
+create-react-shadcn-app nextjs-app-router my-dashboard
+create-react-shadcn-app nextjs-pages-router my-blog
 ```
 
 ### degit 사용 (대안)
