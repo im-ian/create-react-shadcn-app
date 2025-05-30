@@ -1,66 +1,173 @@
-# 🚀 React shadcn/ui Boilerplates
+# 🚀 React + shadcn/ui Boilerplates
 
-개인 사용을 위한 React + shadcn/ui 보일러플레이트 모음
+A collection of modern, production-ready boilerplates for building React applications with different frameworks and routing solutions.
 
-## 📁 구조
+## 📦 Available Templates
 
-```
-react-shadcn-boilerplates/
-├── packages/
-│   ├── react-vite/           # React + Vite + shadcn/ui 보일러플레이트
-│   ├── nextjs-app-router/    # Next.js App Router + shadcn/ui 보일러플레이트
-│   └── nextjs-pages-router/  # Next.js Pages Router + shadcn/ui 보일러플레이트
-├── scripts/
-│   └── create-project.js     # 프로젝트 생성 스크립트
-└── package.json
-```
+### 1. 🔥 React + Vite
+**Location**: `packages/react-vite/`
 
-## 💻 사용법
+A modern React boilerplate with Vite for fast development and TanStack Router for type-safe routing.
 
-### 1. npm 스크립트 사용
+**Tech Stack**:
+- React 18 + TypeScript
+- Vite (Build tool)
+- TanStack Router (Type-safe routing)
+- Tailwind CSS v4
+- shadcn/ui components
+- Jotai (State management)
+- TanStack Query (Server state)
+
+### 2. ⚡ Next.js App Router
+**Location**: `packages/nextjs-app-router/`
+
+A Next.js boilerplate using the modern App Router with server components and streaming.
+
+**Tech Stack**:
+- Next.js 15 + App Router
+- TypeScript
+- Tailwind CSS v4
+- shadcn/ui components
+- Jotai (State management)
+- TanStack Query (Server state)
+
+### 3. 📄 Next.js Pages Router *(Coming Soon)*
+**Location**: `packages/nextjs-pages-router/`
+
+A Next.js boilerplate using the traditional Pages Router for projects that need it.
+
+## 🚀 Quick Start
+
+### Using the Creation Script
 
 ```bash
-# React + Vite 프로젝트 생성
-npm run create:react my-app
+# Clone this repository
+git clone <repository-url>
+cd react-shadcn-boilerplates
 
-# Next.js App Router 프로젝트 생성
-npm run create:next-app my-dashboard
-
-# Next.js Pages Router 프로젝트 생성
-npm run create:next-pages my-blog
+# Create a new project using any template
+node scripts/create-project.js my-app react-vite
+node scripts/create-project.js my-app nextjs-app-router
+# node scripts/create-project.js my-app nextjs-pages-router  # Coming soon
 ```
 
-### 2. 명령어로 직접 실행
+### Manual Setup
 
 ```bash
-node scripts/create-project.js <template> <project-name> [target-dir]
+# Copy any template manually
+cp -r packages/react-vite my-new-project
+cd my-new-project
+npm install
+npm run dev
 ```
 
-**예시:**
+## 🛠️ Common Features
+
+All boilerplates include:
+
+- ✅ **TypeScript** for type safety
+- ✅ **Tailwind CSS v4** for modern styling
+- ✅ **shadcn/ui** for beautiful components
+- ✅ **Jotai** for atomic state management
+- ✅ **TanStack Query** for server state
+- ✅ **ESLint** for code quality
+- ✅ **Domain-driven folder structure**
+- ✅ **Modern development tools**
+
+## 📁 Project Structure
+
+Each template follows a consistent, domain-driven structure:
+
+```
+src/
+├── components/             # Shared/common components
+│   └── ui/                # shadcn/ui components
+├── domains/               # Domain-based organization
+│   ├── user/
+│   │   ├── components/
+│   │   ├── hooks/
+│   │   └── index.ts
+│   ├── product/
+│   └── order/
+├── hooks/                 # Shared hooks
+├── lib/                   # Utilities and configurations
+└── ...                    # Framework-specific files
+```
+
+## 🎯 When to Use Each Template
+
+### React + Vite
+- **Best for**: SPAs, client-side applications, rapid prototyping
+- **Pros**: Fast development, simple deployment, full client-side control
+- **Use cases**: Dashboards, admin panels, interactive web apps
+
+### Next.js App Router
+- **Best for**: Full-stack applications, SEO-critical sites, modern React patterns
+- **Pros**: Server components, streaming, built-in optimizations, SEO-friendly
+- **Use cases**: Marketing sites, e-commerce, blogs, complex web applications
+
+### Next.js Pages Router
+- **Best for**: Existing Next.js projects, gradual migration, specific requirements
+- **Pros**: Mature ecosystem, well-documented, stable API
+- **Use cases**: Legacy projects, specific routing needs, incremental adoption
+
+## 🔧 Customization
+
+### Adding Components
+
+All templates use shadcn/ui. Add new components with:
+
 ```bash
-node scripts/create-project.js react-vite my-app
-node scripts/create-project.js nextjs-app-router my-dashboard ./projects
+npx shadcn@latest add [component-name]
 ```
 
-## 📦 템플릿
+### State Management
 
-- `react-vite` - React + Vite + shadcn/ui
-- `nextjs-app-router` - Next.js App Router + shadcn/ui
-- `nextjs-pages-router` - Next.js Pages Router + shadcn/ui
+- **Client State**: Use Jotai atoms
+- **Server State**: Use TanStack Query
+- **Form State**: Use react-hook-form (add as needed)
 
-## ⚙️ 자동 설정
+### Styling
 
-프로젝트 생성 시 자동으로:
+- Customize Tailwind CSS in `globals.css`
+- Modify shadcn/ui theme variables
+- Add custom components in `components/ui/`
 
-- 파일 복사 (불필요한 파일 제외)
-- package.json 업데이트 (프로젝트명, 버전 등)
-- README.md 생성
-- Git 저장소 초기화 및 초기 커밋
-- 의존성 설치 (yarn 우선, 없으면 npm)
+## 📝 Scripts
 
-**참고:** degit 사용 시에는 자동 설정이 되지 않으므로 수동으로 설정해야 합니다.
+Each template includes these common scripts:
 
-## 📋 요구사항
+```bash
+npm run dev      # Start development server
+npm run build    # Build for production
+npm run lint     # Run ESLint
+npm run preview  # Preview production build (Vite only)
+npm run start    # Start production server (Next.js only)
+```
 
-- Node.js 18+
-- yarn 또는 npm
+## 🚀 Deployment
+
+### React + Vite
+- **Recommended**: Vercel, Netlify, GitHub Pages
+- **Build**: `npm run build` → `dist/` folder
+
+### Next.js (App Router & Pages Router)
+- **Recommended**: Vercel (zero-config)
+- **Alternatives**: Netlify, AWS, Docker
+- **Build**: `npm run build` → `.next/` folder
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+---
+
+**Choose your adventure and start building! 🎉**

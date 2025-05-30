@@ -7,15 +7,18 @@ const { execSync } = require("child_process");
 // 사용 가능한 템플릿들
 const TEMPLATES = {
   "react-vite": {
-    name: "React + Vite + shadcn/ui",
+    name: "React + Vite",
+    description: "React 18 with Vite, TanStack Router, and shadcn/ui",
     path: "packages/react-vite",
   },
   "nextjs-app-router": {
-    name: "Next.js App Router + shadcn/ui",
+    name: "Next.js App Router",
+    description: "Next.js 15 with App Router and shadcn/ui",
     path: "packages/nextjs-app-router",
   },
   "nextjs-pages-router": {
-    name: "Next.js Pages Router + shadcn/ui",
+    name: "Next.js Pages Router",
+    description: "Next.js with Pages Router and shadcn/ui (Coming Soon)",
     path: "packages/nextjs-pages-router",
   },
 };
