@@ -1,54 +1,191 @@
-# React + TypeScript + Vite
+# 🚀 React + Vite + shadcn/ui Boilerplate
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, production-ready boilerplate for building React applications with Vite, TanStack Router, TypeScript, Tailwind CSS, and shadcn/ui components.
 
-Currently, two official plugins are available:
+## ✨ Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React 18** with modern hooks and patterns
+- **Vite** for lightning-fast development and building
+- **TanStack Router** for type-safe routing
+- **TypeScript** for type safety and better developer experience
+- **Tailwind CSS v4** for utility-first styling
+- **shadcn/ui** for beautiful, accessible UI components
+- **Jotai** for atomic state management
+- **TanStack Query** for server state management
+- **ESLint** for code quality and consistency
+- **Domain-driven folder structure** for better code organization
 
-## Expanding the ESLint configuration
+## 🛠️ Tech Stack
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Framework**: React 18
+- **Build Tool**: Vite
+- **Language**: TypeScript
+- **Routing**: TanStack Router
+- **Styling**: Tailwind CSS v4
+- **UI Components**: shadcn/ui
+- **State Management**: Jotai (Atomic)
+- **Server State**: TanStack Query
+- **Code Quality**: ESLint
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## 📁 Project Structure
+
+```
+src/
+├── components/             # Shared/common components
+│   ├── ui/                # shadcn/ui components
+│   │   └── button.tsx
+│   └── providers.tsx      # App providers
+├── domains/               # Domain-based organization
+│   ├── user/
+│   │   ├── components/
+│   │   │   └── UserProfileCard.tsx
+│   │   ├── hooks/
+│   │   │   └── useUser.ts
+│   │   └── index.ts
+│   ├── product/
+│   │   ├── components/
+│   │   └── hooks/
+│   └── order/
+│       ├── components/
+│       └── hooks/
+├── hooks/                 # Shared hooks
+├── lib/                   # Utilities and configurations
+├── routes/                # TanStack Router routes
+│   ├── __root.tsx
+│   ├── index.tsx
+│   └── about.tsx
+└── main.tsx              # App entry point
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🚀 Getting Started
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+### Prerequisites
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+- Node.js 18+ 
+- npm, yarn, or pnpm
+
+### Installation
+
+1. Create a new project using the CLI tool:
+
+```bash
+# Using npx (recommended)
+npx create-react-shadcn-app my-app react-vite
+
+# Or using degit
+npx degit im-ian/create-react-shadcn-app/packages/react-vite my-app
 ```
+
+2. Install dependencies:
+
+```bash
+cd my-app
+npm install
+# or
+yarn install
+# or
+pnpm install
+```
+
+3. Start the development server:
+
+```bash
+npm run dev
+# or
+yarn dev
+# or
+pnpm dev
+```
+
+4. Open [http://localhost:5173](http://localhost:5173) in your browser.
+
+## 📝 Available Scripts
+
+- `npm run dev` - Start development server
+- `npm run build` - Build the application for production
+- `npm run preview` - Preview the production build locally
+- `npm run lint` - Run ESLint for code quality checks
+
+## 🎨 Adding Components
+
+This boilerplate uses shadcn/ui for components. To add new components:
+
+```bash
+npx shadcn@latest add [component-name]
+```
+
+For example:
+```bash
+npx shadcn@latest add card
+npx shadcn@latest add input
+npx shadcn@latest add dialog
+```
+
+## 🏗️ Domain-Driven Structure
+
+The project follows a domain-driven approach where related functionality is grouped together:
+
+- **`domains/user/`** - User-related components, hooks, and logic
+- **`domains/product/`** - Product-related functionality
+- **`domains/order/`** - Order management features
+
+Each domain contains:
+- `components/` - Domain-specific React components
+- `hooks/` - Custom hooks for the domain
+- `index.ts` - Barrel exports for clean imports
+
+## 🔧 Customization
+
+### Tailwind CSS
+
+The project uses Tailwind CSS v4. Customize your design system in:
+- `src/index.css` - Global styles and CSS variables
+- `tailwind.config.js` - Tailwind configuration (if needed)
+
+### shadcn/ui Theme
+
+Customize the component theme by modifying the CSS variables in `src/index.css`.
+
+### State Management
+
+- **Client State**: Use Jotai atoms for component state
+- **Server State**: Use TanStack Query for API data
+
+### Routing
+
+Add new routes by creating files in the `src/routes/` directory. TanStack Router will automatically generate the route tree.
+
+## 📦 Building for Production
+
+```bash
+npm run build
+npm run preview
+```
+
+The application will be optimized and ready for deployment in the `dist/` folder.
+
+## 🚀 Deployment
+
+This Vite application can be deployed to:
+
+- **Vercel** (recommended)
+- **Netlify**
+- **GitHub Pages**
+- **AWS S3 + CloudFront**
+- Any static hosting service
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License.
+
+---
+
+**Happy coding!** 🎉

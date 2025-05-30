@@ -1,20 +1,36 @@
 {
-  "name": "react-shadcn-boilerplates",
+  "name": "create-react-shadcn-app",
   "version": "1.0.0",
-  "description": "A collection of React boilerplates with shadcn/ui components",
+  "description": "CLI tool to create React applications with shadcn/ui components",
+  "main": "scripts/create-project.js",
+  "bin": {
+    "create-react-shadcn-app": "./scripts/create-project.js"
+  },
   "scripts": {
     "create:react": "node scripts/create-project.js react-vite",
     "create:next-app": "node scripts/create-project.js nextjs-app-router",
     "create:next-pages": "node scripts/create-project.js nextjs-pages-router"
   },
-  "keywords": ["react", "nextjs", "vite", "typescript", "tailwindcss", "shadcn-ui", "boilerplate"],
-  "author": "Your Name",
+  "keywords": ["react", "nextjs", "vite", "typescript", "tailwindcss", "shadcn-ui", "boilerplate", "template", "cli"],
+  "author": "Your Name <your.email@example.com>",
   "license": "MIT",
-  "devDependencies": {
-    "fs-extra": "^11.1.1"
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/im-ian/react-shadcn-boilerplates.git"
   },
+  "homepage": "https://github.com/im-ian/react-shadcn-boilerplates#readme",
+  "bugs": {
+    "url": "https://github.com/im-ian/react-shadcn-boilerplates/issues"
+  },
+  "files": [
+    "scripts/",
+    "packages/",
+    "README.md"
+  ],
   "engines": {
     "node": ">=18.0.0"
   },
-  "packageManager": "yarn@4.1.0+sha512.5b7bc055cad63273dda27df1570a5d2eb4a9f03b35b394d3d55393c2a5560a17f5cef30944b11d6a48bcbcfc1c3a26d618aae77044774c529ba36cb771ad5b0f"
+  "dependencies": {
+    "fs-extra": "^11.1.1"
+  }
 }

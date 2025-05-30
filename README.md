@@ -1,11 +1,11 @@
-# 🚀 React + shadcn/ui 보일러플레이트 모음
+# 🚀 create-react-shadcn-app
 
-개인 사용을 위한 React + shadcn/ui 보일러플레이트 모음
+React + shadcn/ui 애플리케이션을 빠르게 생성하는 CLI 도구
 
 ## 📦 사용 가능한 템플릿
 
 ### 1. 🔥 React + Vite
-**위치**: `packages/react-vite/`
+**템플릿명**: `react-vite`
 
 빠른 개발을 위한 Vite와 타입 안전한 라우팅을 위한 TanStack Router가 포함된 현대적인 React 보일러플레이트입니다.
 
@@ -19,7 +19,7 @@
 - TanStack Query (서버 상태)
 
 ### 2. ⚡ Next.js App Router
-**위치**: `packages/nextjs-app-router/`
+**템플릿명**: `nextjs-app-router`
 
 서버 컴포넌트와 스트리밍을 지원하는 현대적인 App Router를 사용한 Next.js 보일러플레이트입니다.
 
@@ -32,7 +32,7 @@
 - TanStack Query (서버 상태)
 
 ### 3. 📄 Next.js Pages Router
-**위치**: `packages/nextjs-pages-router/`
+**템플릿명**: `nextjs-pages-router`
 
 전통적인 Pages Router를 사용한 Next.js 보일러플레이트입니다. 기존 프로젝트나 특정 요구사항이 있는 경우에 적합합니다.
 
@@ -46,32 +46,48 @@
 
 ## 🚀 빠른 시작
 
-### 생성 스크립트 사용
+### npx 사용 (권장)
 
 ```bash
-# 이 저장소 클론
-git clone <repository-url>
-cd react-shadcn-boilerplates
+# React + Vite 프로젝트 생성
+npx create-react-shadcn-app my-app react-vite
 
-# 원하는 템플릿으로 새 프로젝트 생성
-node scripts/create-project.js react-vite my-app
-node scripts/create-project.js nextjs-app-router my-app
-node scripts/create-project.js nextjs-pages-router my-app
+# Next.js App Router 프로젝트 생성
+npx create-react-shadcn-app my-dashboard nextjs-app-router
+
+# Next.js Pages Router 프로젝트 생성
+npx create-react-shadcn-app my-blog nextjs-pages-router
 ```
 
-### 수동 설정
+### 전역 설치 후 사용
 
 ```bash
-# 템플릿을 수동으로 복사
-cp -r packages/react-vite my-new-project
-cd my-new-project
+# 전역 설치
+npm install -g create-react-shadcn-app
+
+# 프로젝트 생성
+create-react-shadcn-app my-app react-vite
+create-react-shadcn-app my-dashboard nextjs-app-router
+create-react-shadcn-app my-blog nextjs-pages-router
+```
+
+### degit 사용 (대안)
+
+```bash
+# 템플릿을 직접 복사
+npx degit im-ian/create-react-shadcn-app/packages/react-vite my-app
+npx degit im-ian/create-react-shadcn-app/packages/nextjs-app-router my-dashboard
+npx degit im-ian/create-react-shadcn-app/packages/nextjs-pages-router my-blog
+
+# 의존성 설치 및 개발 서버 시작
+cd my-app
 npm install
 npm run dev
 ```
 
 ## 🛠️ 공통 기능
 
-모든 보일러플레이트에 포함된 기능:
+모든 템플릿에 포함된 기능:
 
 - ✅ **TypeScript** 타입 안전성
 - ✅ **Tailwind CSS v4** 현대적인 스타일링
@@ -80,6 +96,7 @@ npm run dev
 - ✅ **TanStack Query** 서버 상태 관리
 - ✅ **ESLint** 코드 품질 관리
 - ✅ **도메인 기반 폴더 구조**
+- ✅ **현대적인 개발 도구**
 
 ## 📁 프로젝트 구조
 
@@ -100,6 +117,23 @@ src/
 ├── lib/                   # 유틸리티 및 설정
 └── ...                    # 프레임워크별 파일
 ```
+
+## 🎯 각 템플릿 사용 시기
+
+### React + Vite
+- **적합한 용도**: SPA, 클라이언트 사이드 애플리케이션, 빠른 프로토타이핑
+- **장점**: 빠른 개발, 간단한 배포, 완전한 클라이언트 사이드 제어
+- **사용 사례**: 대시보드, 관리자 패널, 인터랙티브 웹 앱
+
+### Next.js App Router
+- **적합한 용도**: 풀스택 애플리케이션, SEO가 중요한 사이트, 현대적인 React 패턴
+- **장점**: 서버 컴포넌트, 스트리밍, 내장 최적화, SEO 친화적
+- **사용 사례**: 마케팅 사이트, 이커머스, 블로그, 복잡한 웹 애플리케이션
+
+### Next.js Pages Router
+- **적합한 용도**: 기존 Next.js 프로젝트, 점진적 마이그레이션, 특정 요구사항
+- **장점**: 성숙한 생태계, 잘 문서화됨, 안정적인 API
+- **사용 사례**: 레거시 프로젝트, 특정 라우팅 요구사항, 점진적 도입
 
 ## 🔧 커스터마이징
 
@@ -145,3 +179,19 @@ npm run start    # 프로덕션 서버 시작 (Next.js만)
 - **권장**: Vercel (제로 설정)
 - **대안**: Netlify, AWS, Docker
 - **빌드**: `npm run build` → `.next/` 폴더
+
+## 🤝 기여하기
+
+1. 저장소 포크
+2. 기능 브랜치 생성 (`git checkout -b feature/amazing-feature`)
+3. 변경사항 커밋 (`git commit -m 'Add some amazing feature'`)
+4. 브랜치에 푸시 (`git push origin feature/amazing-feature`)
+5. Pull Request 열기
+
+## 📄 라이선스
+
+이 프로젝트는 MIT 라이선스 하에 있습니다.
+
+---
+
+**빠르게 시작하고 멋진 앱을 만들어보세요! 🎉**
