@@ -27,6 +27,12 @@ const TEMPLATES = {
       "Electron desktop app with Vite, React, shadcn/ui, and electron-updater",
     path: "packages/electron-vite-react",
   },
+  "expo-react-native": {
+    name: "Expo (React Native)",
+    description:
+      "Expo + Expo Router + NativeWind + Jotai + TanStack Query for iOS/Android/Web",
+    path: "packages/expo-react-native",
+  },
 };
 
 function showUsage() {
@@ -41,6 +47,9 @@ function showUsage() {
   );
   console.log(
     "  npx create-react-shadcn-app electron-vite-react <project-name>"
+  );
+  console.log(
+    "  npx create-react-shadcn-app expo-react-native <project-name>"
   );
 }
 
