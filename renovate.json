@@ -48,7 +48,6 @@
     },
     {
       "matchUpdateTypes": ["major"],
-      "separateMajorMinor": true,
       "labels": ["dependencies", "major-update"]
     },
     {
