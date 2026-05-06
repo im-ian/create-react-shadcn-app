@@ -21,6 +21,12 @@ const TEMPLATES = {
     description: "Next.js 15 with Pages Router and shadcn/ui",
     path: "packages/nextjs-pages-router",
   },
+  "electron-vite-react": {
+    name: "Electron + Vite + React",
+    description:
+      "Electron desktop app with Vite, React, shadcn/ui, and electron-updater",
+    path: "packages/electron-vite-react",
+  },
 };
 
 function showUsage() {
@@ -32,6 +38,9 @@ function showUsage() {
   console.log("  npx create-react-shadcn-app nextjs-app-router <project-name>");
   console.log(
     "  npx create-react-shadcn-app nextjs-pages-router <project-name>"
+  );
+  console.log(
+    "  npx create-react-shadcn-app electron-vite-react <project-name>"
   );
 }
 
