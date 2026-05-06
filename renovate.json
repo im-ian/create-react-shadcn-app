@@ -47,6 +47,18 @@
       "commitMessageTopic": "electron-vite-react deps"
     },
     {
+      "matchManagers": ["npm"],
+      "matchFileNames": ["packages/expo-react-native/**"],
+      "groupName": "expo-react-native template",
+      "commitMessageTopic": "expo-react-native deps"
+    },
+    {
+      "matchManagers": ["npm"],
+      "matchFileNames": ["packages/expo-webview/**"],
+      "groupName": "expo-webview template",
+      "commitMessageTopic": "expo-webview deps"
+    },
+    {
       "matchUpdateTypes": ["major"],
       "labels": ["dependencies", "major-update"]
     },
