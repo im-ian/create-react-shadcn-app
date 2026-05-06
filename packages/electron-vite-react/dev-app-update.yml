@@ -1,0 +1,4 @@
+provider: github
+owner: your-github-username
+repo: your-repo-name
+updaterCacheDirName: electron-vite-react-shadcn-boilerplate-updater
