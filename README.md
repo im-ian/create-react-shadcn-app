@@ -11,6 +11,7 @@ React + shadcn/ui 애플리케이션을 빠르게 생성하는 CLI 도구
 | `nextjs-pages-router` | 전통적인 Pages Router | Next.js 15, Pages Router | 기존 프로젝트 호환, 안정성 우선 |
 | `electron-vite-react` | 데스크탑 앱 (Electron + Vite) | Electron 42, electron-builder, electron-updater | 크로스 플랫폼 데스크탑 앱, 자동 업데이트 |
 | `expo-react-native` | 모바일 앱 (Expo + React Native) | Expo SDK 54, Expo Router, NativeWind, Tailwind 3.4 | iOS/Android/Web 동시 지원 모바일 앱 |
+| `expo-webview` | Next.js 웹앱 호스팅용 모바일 셸 | Expo + react-native-webview + 타입드 postMessage 브리지 + shadcn 네이티브 fallback UI | 웹앱을 그대로 모바일에 감싸기, 푸시/생체인증 등 네이티브 기능만 추가 |
 
 **공통 기술 스택**: TypeScript, Tailwind CSS v4, shadcn/ui, Jotai, TanStack Query
 
@@ -33,6 +34,9 @@ npx create-react-shadcn-app electron-vite-react <project-name>
 
 # Expo (React Native) 모바일 앱 프로젝트 생성
 npx create-react-shadcn-app expo-react-native <project-name>
+
+# Expo WebView 셸 (Next.js 호스팅용) 프로젝트 생성
+npx create-react-shadcn-app expo-webview <project-name>
 ```
 
 ### 전역 설치 후 사용
@@ -47,6 +51,7 @@ create-react-shadcn-app nextjs-app-router <project-name>
 create-react-shadcn-app nextjs-pages-router <project-name>
 create-react-shadcn-app electron-vite-react <project-name>
 create-react-shadcn-app expo-react-native <project-name>
+create-react-shadcn-app expo-webview <project-name>
 ```
 
 ## 🛠️ 공통 기능
@@ -110,6 +115,13 @@ src/
 - **장점**: Expo Router 파일 기반 라우팅, NativeWind로 Tailwind 스타일링, EAS Build로 클라우드 빌드 가능, OTA 업데이트
 - **사용 사례**: 신규 모바일 앱, 빠른 프로토타이핑, iOS/Android/Web 단일 코드베이스
 - **주의**: 다른 템플릿은 Tailwind 4를 쓰지만 이 템플릿은 NativeWind 호환성 때문에 Tailwind 3.4 사용. 시뮬레이터 (Xcode/Android Studio) 또는 Expo Go 앱 필요
+
+### Expo WebView Shell
+- **적합한 용도**: 이미 만들어진 웹앱 (Next.js 등)을 모바일 앱으로 빠르게 감싸기, 푸시/생체인증/딥링크 같은 네이티브 기능만 얇은 셸로 추가
+- **구성**: `react-native-webview`로 웹앱 호스팅 + 타입드 `postMessage` 브리지 (`lib/bridge.ts`) + shadcn-style 네이티브 fallback (오프라인/에러/재시도 화면)
+- **사용 사례**: 본체는 웹, 모바일은 thin wrapper. 점진적 네이티브화 (네이티브 화면을 하나씩 추가)
+- **postMessage 브리지**: Web→Native = `window.ReactNativeWebView.postMessage(JSON.stringify(...))`. Native→Web = `webViewRef.current.injectJavaScript(...)` + `window.dispatchEvent(new MessageEvent('native-message', { data }))`
+- **주의**: `app.json`의 `extra.webUrl` 값을 실제 배포된 웹앱 URL로 교체. 개발 중에는 `http://localhost:3000` (iOS 시뮬레이터에서 호스트 머신으로 접근 가능)
 
 ## 🔧 커스터마이징
 
