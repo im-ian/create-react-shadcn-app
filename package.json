@@ -11,7 +11,8 @@
     "create:next-app": "node scripts/create-project.js nextjs-app-router",
     "create:next-pages": "node scripts/create-project.js nextjs-pages-router",
     "create:electron": "node scripts/create-project.js electron-vite-react",
-    "create:expo": "node scripts/create-project.js expo-react-native"
+    "create:expo": "node scripts/create-project.js expo-react-native",
+    "create:expo-webview": "node scripts/create-project.js expo-webview"
   },
   "keywords": ["react", "nextjs", "vite", "typescript", "tailwindcss", "shadcn-ui", "boilerplate", "template", "cli"],
   "author": "Your Name <your.email@example.com>",
