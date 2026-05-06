@@ -1,0 +1,44 @@
+appId: com.example.app
+productName: ElectronViteReactApp
+directories:
+  buildResources: resources
+  output: release
+files:
+  - "out/**/*"
+  - "package.json"
+extraMetadata:
+  main: out/main/index.js
+
+# Update server. Replace `owner` and `repo` with your GitHub repo, or
+# swap `provider` (s3, generic, etc.) per your distribution strategy.
+publish:
+  provider: github
+  owner: your-github-username
+  repo: your-repo-name
+
+mac:
+  category: public.app-category.developer-tools
+  target:
+    - dmg
+    - zip
+  hardenedRuntime: true
+  gatekeeperAssess: false
+  entitlements: build/entitlements.mac.plist
+  entitlementsInherit: build/entitlements.mac.plist
+
+win:
+  target:
+    - nsis
+    - zip
+  artifactName: ${productName}-${version}-${arch}.${ext}
+
+linux:
+  target:
+    - AppImage
+    - deb
+  category: Development
+
+nsis:
+  oneClick: false
+  perMachine: false
+  allowToChangeInstallationDirectory: true
