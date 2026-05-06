@@ -10,6 +10,7 @@ React + shadcn/ui 애플리케이션을 빠르게 생성하는 CLI 도구
 | `nextjs-app-router` | 현대적인 App Router + 서버 컴포넌트 | Next.js 15, App Router, 서버 컴포넌트 | SSR, 최신 Next.js 기능, SEO 중요 |
 | `nextjs-pages-router` | 전통적인 Pages Router | Next.js 15, Pages Router | 기존 프로젝트 호환, 안정성 우선 |
 | `electron-vite-react` | 데스크탑 앱 (Electron + Vite) | Electron 42, electron-builder, electron-updater | 크로스 플랫폼 데스크탑 앱, 자동 업데이트 |
+| `expo-react-native` | 모바일 앱 (Expo + React Native) | Expo SDK 54, Expo Router, NativeWind, Tailwind 3.4 | iOS/Android/Web 동시 지원 모바일 앱 |
 
 **공통 기술 스택**: TypeScript, Tailwind CSS v4, shadcn/ui, Jotai, TanStack Query
 
@@ -29,6 +30,9 @@ npx create-react-shadcn-app nextjs-pages-router <project-name>
 
 # Electron 데스크탑 앱 프로젝트 생성
 npx create-react-shadcn-app electron-vite-react <project-name>
+
+# Expo (React Native) 모바일 앱 프로젝트 생성
+npx create-react-shadcn-app expo-react-native <project-name>
 ```
 
 ### 전역 설치 후 사용
@@ -42,6 +46,7 @@ create-react-shadcn-app react-vite <project-name>
 create-react-shadcn-app nextjs-app-router <project-name>
 create-react-shadcn-app nextjs-pages-router <project-name>
 create-react-shadcn-app electron-vite-react <project-name>
+create-react-shadcn-app expo-react-native <project-name>
 ```
 
 ## 🛠️ 공통 기능
@@ -100,6 +105,12 @@ src/
 - **사용 사례**: 내부 도구, 오프라인 우선 앱, 시스템 리소스 접근이 필요한 데스크탑 앱
 - **주의**: 배포 전 `electron-builder.yml`과 `dev-app-update.yml`의 `owner`/`repo`를 실제 GitHub 저장소로 교체하고, macOS 배포 시 코드 사이닝/notarization 설정 필요
 
+### Expo (React Native)
+- **적합한 용도**: iOS/Android 네이티브 모바일 앱 (Web 동시 지원), 공식 React Native 권장 경로
+- **장점**: Expo Router 파일 기반 라우팅, NativeWind로 Tailwind 스타일링, EAS Build로 클라우드 빌드 가능, OTA 업데이트
+- **사용 사례**: 신규 모바일 앱, 빠른 프로토타이핑, iOS/Android/Web 단일 코드베이스
+- **주의**: 다른 템플릿은 Tailwind 4를 쓰지만 이 템플릿은 NativeWind 호환성 때문에 Tailwind 3.4 사용. 시뮬레이터 (Xcode/Android Studio) 또는 Expo Go 앱 필요
+
 ## 🔧 커스터마이징
 
 ### 컴포넌트 추가
@@ -150,6 +161,11 @@ npm run start    # 프로덕션 서버 시작 (Next.js만)
 - **패키징**: `npm run package` (현재 OS), `npm run package:mac|win|linux`
 - **배포**: GitHub Releases (default), S3, generic HTTP 서버 등 (`electron-builder.yml`의 `publish` 블록)
 - **자동 업데이트**: `electron-updater` 사용. 배포 채널 설정 후 앱 내 "Check for updates" 버튼이 작동
+
+### Expo (React Native)
+- **개발**: `npm run ios` / `npm run android` / `npm run web` (Expo dev server)
+- **빌드/배포**: [EAS Build](https://docs.expo.dev/build/introduction/) 권장. `npx eas build --platform ios|android` 또는 둘 다
+- **OTA 업데이트**: [EAS Update](https://docs.expo.dev/eas-update/introduction/) — 앱스토어 재제출 없이 JS 번들 업데이트
 
 ## 🤝 기여하기
 
