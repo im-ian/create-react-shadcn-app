@@ -1,0 +1,71 @@
+{
+  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+  "extends": [
+    "config:recommended",
+    ":dependencyDashboard",
+    ":semanticCommits",
+    ":prHourlyLimit2",
+    ":prConcurrentLimit10"
+  ],
+  "timezone": "Asia/Seoul",
+  "schedule": ["before 9am on monday"],
+  "labels": ["dependencies"],
+  "rangeStrategy": "bump",
+  "lockFileMaintenance": {
+    "enabled": true,
+    "schedule": ["before 9am on monday"]
+  },
+  "packageRules": [
+    {
+      "matchManagers": ["npm"],
+      "matchFileNames": ["package.json"],
+      "groupName": "root deps",
+      "commitMessageTopic": "root dependencies"
+    },
+    {
+      "matchManagers": ["npm"],
+      "matchFileNames": ["packages/react-vite/**"],
+      "groupName": "react-vite template",
+      "commitMessageTopic": "react-vite deps"
+    },
+    {
+      "matchManagers": ["npm"],
+      "matchFileNames": ["packages/nextjs-app-router/**"],
+      "groupName": "nextjs-app-router template",
+      "commitMessageTopic": "nextjs-app-router deps"
+    },
+    {
+      "matchManagers": ["npm"],
+      "matchFileNames": ["packages/nextjs-pages-router/**"],
+      "groupName": "nextjs-pages-router template",
+      "commitMessageTopic": "nextjs-pages-router deps"
+    },
+    {
+      "matchManagers": ["npm"],
+      "matchFileNames": ["packages/electron-vite-react/**"],
+      "groupName": "electron-vite-react template",
+      "commitMessageTopic": "electron-vite-react deps"
+    },
+    {
+      "matchUpdateTypes": ["major"],
+      "separateMajorMinor": true,
+      "labels": ["dependencies", "major-update"]
+    },
+    {
+      "matchDepTypes": ["devDependencies"],
+      "matchUpdateTypes": ["patch", "minor"],
+      "automerge": false
+    },
+    {
+      "matchPackageNames": ["node"],
+      "enabled": false
+    }
+  ],
+  "vulnerabilityAlerts": {
+    "labels": ["security"],
+    "schedule": ["at any time"]
+  },
+  "prBodyNotes": [
+    "Template repo — verify each package still scaffolds correctly after merge."
+  ]
+}
