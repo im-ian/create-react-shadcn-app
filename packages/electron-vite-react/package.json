@@ -27,7 +27,8 @@
     "package": "electron-vite build && electron-builder --dir",
     "package:mac": "electron-vite build && electron-builder --mac",
     "package:win": "electron-vite build && electron-builder --win",
-    "package:linux": "electron-vite build && electron-builder --linux"
+    "package:linux": "electron-vite build && electron-builder --linux",
+    "postinstall": "install-electron"
   },
   "dependencies": {
     "@radix-ui/react-slot": "^1.2.4",
