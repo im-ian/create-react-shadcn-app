@@ -33,6 +33,12 @@ const TEMPLATES = {
       "Expo + Expo Router + NativeWind + Jotai + TanStack Query for iOS/Android/Web",
     path: "packages/expo-react-native",
   },
+  "expo-webview": {
+    name: "Expo WebView Shell",
+    description:
+      "Expo WebView shell that hosts a Next.js (or any web) app with native shadcn fallback UI and a typed postMessage bridge",
+    path: "packages/expo-webview",
+  },
 };
 
 function showUsage() {
@@ -50,6 +56,9 @@ function showUsage() {
   );
   console.log(
     "  npx create-react-shadcn-app expo-react-native <project-name>"
+  );
+  console.log(
+    "  npx create-react-shadcn-app expo-webview <project-name>"
   );
 }
 
