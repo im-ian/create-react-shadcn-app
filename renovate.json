@@ -96,6 +96,26 @@
       "matchPackageNames": ["vite", "@vitejs/plugin-react"],
       "matchUpdateTypes": ["major"],
       "enabled": false
+    },
+    {
+      "description": "tailwindcss 4 is blocked in the expo templates: nativewind's metro plugin throws 'NativeWind only supports Tailwind CSS v3' (nativewind/dist/metro/tailwind/index.js), so the bundle fails even though nativewind declares a permissive tailwindcss '>3.3.0' peer. Verified with `expo export --platform web`. Tailwind v4 support lands in nativewind 5 (currently prerelease), and the templates also still use v3 syntax (global.css @tailwind directives, tailwind.config.js). Re-enable together with a nativewind 5 upgrade and a CSS-first config migration.",
+      "matchFileNames": ["packages/expo-react-native/**", "packages/expo-webview/**"],
+      "matchPackageNames": ["tailwindcss"],
+      "matchUpdateTypes": ["major"],
+      "enabled": false
+    },
+    {
+      "description": "eslint 10 is blocked in the expo templates: eslint-config-expo bundles eslint-plugin-react 7.x, which crashes on eslint 10 with 'TypeError: Error while loading rule react/display-name: contextOrFilename.getFilename is not a function'. Verified with `expo lint`. Re-enable once eslint-config-expo ships an eslint 10 compatible plugin set.",
+      "matchFileNames": ["packages/expo-react-native/**", "packages/expo-webview/**"],
+      "matchPackageNames": ["eslint", "@eslint/js"],
+      "matchUpdateTypes": ["major"],
+      "enabled": false
+    },
+    {
+      "description": "These packages are pinned by the Expo SDK, not chosen independently — bumping them to latest produces an SDK/runtime mismatch. Renovate previously pushed react-native 0.87.1, react 19.3.0, gesture-handler 3.3.0 and worklets 0.13.0 against SDK 57, whose bundledNativeModules pin 0.86.3 / 19.2.3 / ~2.32.0 / 0.10.1; the metro bundle then failed with ERR_PACKAGE_PATH_NOT_EXPORTED for react-native/rn-get-polyfills. Renovate still opens the `expo` SDK bump itself; when it does, run `npx expo install --fix` in that package and commit the result so this family moves to the versions the new SDK pins, then confirm with `npx expo install --check`.",
+      "matchFileNames": ["packages/expo-react-native/**", "packages/expo-webview/**"],
+      "matchPackageNames": ["react", "react-dom", "react-native", "react-native-gesture-handler", "react-native-reanimated", "react-native-safe-area-context", "react-native-screens", "react-native-svg", "react-native-web", "react-native-webview", "react-native-worklets", "@types/react"],
+      "enabled": false
     }
   ],
   "vulnerabilityAlerts": {
