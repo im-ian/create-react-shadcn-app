@@ -76,6 +76,26 @@
     {
       "matchPackageNames": ["node"],
       "enabled": false
+    },
+    {
+      "description": "typescript 7 is blocked repo-wide: typescript-eslint@8.71.1 (latest) peers typescript >=4.8.4 <6.1.0, and every template depends on it either directly (react-vite, electron-vite-react) or transitively (eslint-config-next, eslint-config-expo). Verified: ts 7 fails install with ERESOLVE in react-vite and electron-vite-react, and crashes eslint inside @typescript-eslint/typescript-estree (ts.Extension.Cjs) in the nextjs templates. Re-enable once typescript-eslint ships a release supporting TypeScript 7.",
+      "matchPackageNames": ["typescript"],
+      "matchUpdateTypes": ["major"],
+      "enabled": false
+    },
+    {
+      "description": "eslint 10 is blocked in the nextjs templates: @typescript-eslint/scope-manager@8.71.1, pulled in by eslint-config-next, does not implement the eslint 10 SourceCode scopeManager.addGlobals API despite declaring an eslint ^10.0.0 peer. Verified: 'eslint .' throws TypeError: scopeManager.addGlobals is not a function. react-vite and electron-vite-react run eslint 10 fine because they depend on typescript-eslint directly, so this hold is nextjs-only. Re-enable once eslint-config-next supports eslint 10.",
+      "matchFileNames": ["packages/nextjs-app-router/**", "packages/nextjs-pages-router/**"],
+      "matchPackageNames": ["eslint", "@eslint/js"],
+      "matchUpdateTypes": ["major"],
+      "enabled": false
+    },
+    {
+      "description": "vite 8 is blocked by electron-vite@5.0.0 (latest stable), which peers vite ^5.0.0 || ^6.0.0 || ^7.0.0 — verified ERESOLVE on install. @vitejs/plugin-react 6 requires vite ^8, so it is held together with vite. Re-enable once electron-vite 6 leaves beta.",
+      "matchFileNames": ["packages/electron-vite-react/**"],
+      "matchPackageNames": ["vite", "@vitejs/plugin-react"],
+      "matchUpdateTypes": ["major"],
+      "enabled": false
     }
   ],
   "vulnerabilityAlerts": {
